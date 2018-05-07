@@ -1,0 +1,21 @@
+<h2>Phone Details</h2>
+
+<h3>{{phone?.name}}</h3>
+
+<p>by <i>{{phone?.brand}}</i></p>
+
+<img *ngIf="phone?.image" [src]="phone.image" />
+
+<h3>Specs</h3>
+
+<ul>
+  <li *ngFor="let oneSpec of phone?.specs">
+    {{oneSpec}}
+  </li>
+</ul>
+
+<div>
+  <h3>Danger Zone</h3>
+
+  <button (click)="deleteClick()">Delete This Phone</button>
+</div>
