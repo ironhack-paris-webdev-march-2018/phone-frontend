@@ -4,6 +4,16 @@
   <nav>
     <a routerLink="/">Home</a>
     <a routerLink="/phones">Our Phones</a>
+
+    <span *ngIf="!userTruc.currentUser">
+      <a routerLink="/signup">Sign Up</a>
+      <a routerLink="/login">Log In</a>
+    </span>
+
+    <span *ngIf="userTruc.currentUser">
+      <b>{{userTruc.currentUser.username}}</b>
+      <button (click)="logoutClick()">Log Out</button>
+    </span>
   </nav>
 </header>
 

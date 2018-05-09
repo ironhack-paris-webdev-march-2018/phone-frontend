@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/operator/toPromise';
-import { toPromise } from 'rxjs/operator/toPromise';
 
 @Injectable()
 export class PhoneService {

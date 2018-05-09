@@ -5,11 +5,13 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PhoneListComponent } from './phone-list/phone-list.component';
 import { PhoneDetailsComponent } from './phone-details/phone-details.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'phones', component: PhoneListComponent },
   { path: 'phone/:blahId', component: PhoneDetailsComponent },
+  { path: 'login', component: LoginComponent },
 
   { path: '**', component: NotFoundComponent }
 ];
