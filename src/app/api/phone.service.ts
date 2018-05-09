@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/operator/toPromise';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class PhoneService {
 
@@ -14,14 +16,14 @@ export class PhoneService {
   // GET /api/phones
   getList() {
     return this.ajaxTruc
-      .get('http://localhost:3000/api/phones')
+      .get(`${environment.backUrl}/api/phones`)
       .toPromise();
   }
 
   // GET /api/phone/:phoneId
   getDetails(phoneId) {
     return this.ajaxTruc
-      .get(`http://localhost:3000/api/phone/${phoneId}`)
+      .get(`${environment.backUrl}/api/phone/${phoneId}`)
       .toPromise();
   }
 
@@ -30,7 +32,7 @@ export class PhoneService {
   // DELETE /api/phone/:phoneId
   delete(phoneId) {
     return this.ajaxTruc
-      .delete(`http://localhost:3000/api/phone/${phoneId}`)
+      .delete(`${environment.backUrl}/api/phone/${phoneId}`)
       .toPromise();
   }
 

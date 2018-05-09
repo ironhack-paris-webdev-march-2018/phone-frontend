@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/operator/toPromise';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class UserService {
 
@@ -14,7 +16,7 @@ export class UserService {
   // GET /checklogin
   check() {
     return this.ajaxTruc            // "withCredentials" means send the cookies
-      .get('http://localhost:3000/api/checklogin', { withCredentials: true })
+      .get(`${environment.backUrl}/api/checklogin`, { withCredentials: true })
       .toPromise()
       .then((apiResponse: any) => {
         // set our logged in user state
@@ -29,7 +31,7 @@ export class UserService {
   postLogin(creds: LoginCredentials) {
     return this.ajaxTruc
       .post(
-        'http://localhost:3000/api/login',
+        `${environment.backUrl}/api/login`,
         creds,
         { withCredentials: true } // "withCredentials" means send the cookies
       )
@@ -44,7 +46,7 @@ export class UserService {
   // GET /logout
   logout() {
     return this.ajaxTruc
-      .get('http://localhost:3000/api/logout', { withCredentials: true })
+      .get(`${environment.backUrl}/api/logout`, { withCredentials: true })
       .toPromise()
       .then((apiResponse: any) => {
         this.currentUser = apiResponse.userInfo;
